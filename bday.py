@@ -1,0 +1,27 @@
+import pygame
+import time
+pygame.init()
+screen= pygame.display.set_mode((600,600))
+pygame.display.set_caption("Happy Birthday!")
+card= pygame.image.load("Images\\Birthday card.jpg")
+card=pygame.transform.scale(card,(600,600))
+while True:
+    for i in pygame.event.get():
+        if i.type == pygame.QUIT:
+            pygame.quit()
+    screen.fill("light blue")
+    screen.blit(card,(0,0))
+    font=pygame.font.SysFont("Pacifico",60)
+    text=font.render("Happy Birthday!!!", True, "Dark green")
+    screen.blit(text,(220,250))
+    pygame.display.update()
+    time.sleep(2)
+    cake= pygame.image.load("Images\\Cake.png")
+    cake=pygame.transform.scale(cake,(400,400))
+    screen.fill("light blue")
+    screen.blit(cake,(100,100))
+    font=pygame.font.SysFont("Pacifico",60)
+    text=font.render("Wish you luck!", True, "Blue")
+    screen.blit(text,(160,50))
+    pygame.display.update()
+    time.sleep(2)
