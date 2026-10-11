@@ -1,0 +1,26 @@
+import pygame
+pygame.init()
+screen= pygame.display.set_mode([500,500])
+image1= pygame.image.load("Images\\game1.png")
+image2= pygame.image.load("Images\\Ludo.png")
+image3= pygame.image.load("Images\\temple_run.png")
+image4= pygame.image.load("Images\\candy.jpg")
+screen.blit(image1,(20, 50))
+screen.blit(image2,(20, 150))
+screen.blit(image3,(20, 250))
+screen.blit(image4,(20, 350))
+font= pygame.font.SysFont("Times New Roman",50)
+text1= font.render("ludo",True,"dark blue")
+text2= font.render("candy",True,"red")
+text3= font.render("temple run",True,"yellow")
+text4= font.render("subway surfers",True,"lavender")
+screen.blit(text1,(150, 50))
+screen.blit(text2,(150, 150))
+screen.blit(text3,(150, 250))
+screen.blit(text4,(150, 350))
+pygame.display.update()
+while True:
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            pygame.quit()
+    pygame.display.update()
