@@ -6,7 +6,8 @@ screen= pygame.display.set_mode([600,600])
 bee= pygame.image.load("Images\\bee.png")
 flower= pygame.image.load("Images\\flower.png")
 grass= pygame.image.load("Images\\grass.jpg")
-
+score= 0
+font= pygame.font.SysFont("Times New Roman", 50)
 bee_rect = bee.get_rect()
 bee_rect.x = 300
 bee_rect.y = 300
@@ -17,7 +18,9 @@ H=600
 flower_rect = flower.get_rect()
 flower_rect.x = 100
 flower_rect.y = 100
-
+def draw(score):
+    score_text= font.render("Score: "+ str(score),1,"midnight blue")
+    screen.blit(score_text,(210,20))
 def bumble(keys_pressed,bee):
         if keys_pressed[pygame.K_LEFT]and bee.x-velocity:
             bee.x-= velocity
@@ -41,4 +44,6 @@ while True:
     if abs(bee_rect.x-flower_rect.x)<30 and abs(bee_rect.y-flower_rect.y)<30:
         flower_rect.x=random.randint(90,510)
         flower_rect.y=random.randint(90,510)
+        score+= 1
+    draw(score)
     pygame.display.update()
